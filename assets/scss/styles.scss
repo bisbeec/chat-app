@@ -1,0 +1,94 @@
+@import 'variables';
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+@mixin flexCenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+body {
+	font-family: 'Rubik', sans-serif;
+	font-size: 16px;
+}
+
+body, main, .content-wrap  {
+	margin: 0;
+	overflow-x: hidden;
+	height: 100vh;
+}
+
+.bg-shape {
+	position: absolute;
+	left: -100px;
+	top: 0;
+	width: 35%;
+	height: 90%;
+	background: linear-gradient(45deg, $violetLight, $magentaLight);
+	border-radius: 0 0 100vw 100vw;
+	z-index: -1;
+	&.bg-shape--bg {
+		left: auto;
+		top: auto;
+		right: -100px;
+		bottom: 0;
+		border-radius: 100vw 100vw 0 0;
+		background: hsl(270, 20%, 96%);
+	}
+}
+
+.content-wrap {
+	@include flexCenter;
+	justify-content: space-between;
+	max-width: 900px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.phone-mockup {
+	background: #fff;
+	height: 500px;
+	width: 280px;
+	border-radius: 30px;
+	box-shadow: rgba(0,0,0,0.25) 15px 15px 20px;
+	@include flexCenter;
+	.phone-interior {
+		background: hsl(270, 20%, 96%);
+		width: 93%;
+		height: 95%;
+		border-radius: 20px;
+		position: relative;
+		overflow: hidden;
+		&::after {
+			content: "";
+			display: block;
+			background: #fff;
+			width: 60%;
+			height: 20px;
+			position: absolute;
+			left: 50%;
+			top: 0;
+			transform: translateX(-50%);
+			border-radius: 0 0 15px 15px;
+		}
+	}
+	.phone-interior-top {
+		background: linear-gradient(to right,$violetLight, $magentaLight);
+		height: 70px;
+		width: 100%;
+	}
+}
+.text-wrap {
+	width: 50%;
+	h1 {
+		color: hsl(271, 36%, 24%);
+		font-weight: 500;
+		font-size: 2.6rem;
+	}
+	p {
+		color: $paragraphViolet;
+		line-height: 2;
+	}
+}
